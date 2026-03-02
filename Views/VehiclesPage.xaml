@@ -1,0 +1,78 @@
+<Page x:Class="Car_sharingDB.Views.VehiclesPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Автомобили" Background="#F5F5F5">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Заголовок -->
+        <TextBlock Grid.Row="0" Text="Автомобили" FontSize="22"
+                   FontWeight="Bold" Foreground="#2C3E50" Margin="0,0,0,15"/>
+
+        <!-- Панель кнопок и поиска -->
+        <Grid Grid.Row="1" Margin="0,0,0,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" Content="+ Добавить" Width="110" Height="32"
+                    Style="{StaticResource PrimaryButton}" Click="BtnAdd_Click"/>
+            <Button Grid.Column="1" Content="✏ Изменить" Width="110" Height="32" Margin="8,0,0,0"
+                    Style="{StaticResource SecondaryButton}" Click="BtnEdit_Click"/>
+            <Button Grid.Column="2" Content="✕ Удалить" Width="110" Height="32" Margin="8,0,0,0"
+                    Style="{StaticResource DangerButton}" Click="BtnDelete_Click"/>
+
+            <!-- Поиск -->
+            <TextBox Grid.Column="4" x:Name="TxtSearch" Width="200" Height="32"
+                     Padding="8,0" VerticalContentAlignment="Center"
+                     BorderBrush="#CCC" BorderThickness="1"
+                     TextChanged="TxtSearch_TextChanged"/>
+        </Grid>
+
+        <!-- Таблица автомобилей -->
+        <DataGrid Grid.Row="2" x:Name="VehiclesGrid"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  SelectionMode="Single"
+                  GridLinesVisibility="Horizontal"
+                  HeadersVisibility="Column"
+                  RowBackground="White"
+                  AlternatingRowBackground="#FAFAFA"
+                  BorderBrush="#DDD" BorderThickness="1"
+                  HorizontalGridLinesBrush="#EEE"
+                  CanUserResizeRows="False">
+
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="Background" Value="#2C3E50"/>
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="FontWeight" Value="SemiBold"/>
+                    <Setter Property="Padding" Value="10,8"/>
+                    <Setter Property="BorderThickness" Value="0"/>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID"            Binding="{Binding ID_Vehicles}" Width="50"/>
+                <DataGridTextColumn Header="Гос. номер"    Binding="{Binding Number}"       Width="110"/>
+                <DataGridTextColumn Header="Модель"        Binding="{Binding Model}"         Width="*"/>
+                <DataGridTextColumn Header="Топливо"       Binding="{Binding Type_of_fuel}"  Width="90"/>
+                <DataGridTextColumn Header="Год"           Binding="{Binding Year}"          Width="60"/>
+                <DataGridTextColumn Header="Цвет"          Binding="{Binding Color}"         Width="90"/>
+                <DataGridTextColumn Header="КПП"           Binding="{Binding Transmission}"  Width="90"/>
+                <DataGridTextColumn Header="Привод"        Binding="{Binding Drive}"         Width="80"/>
+                <DataGridTextColumn Header="Статус"        Binding="{Binding Status}"        Width="120"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+
+</Page>

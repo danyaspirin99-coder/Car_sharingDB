@@ -1,6 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using CarSharingDB.Models;
 
-namespace CarSharingDB.Models
+namespace Car_sharingDB.Data
 {
     public class CarSharingDbContext : DbContext
     {
@@ -22,20 +23,17 @@ namespace CarSharingDB.Models
         {
             base.OnModelCreating(modelBuilder);
 
-            // Настройка уникальных ограничений
+            // Уникальные индексы для Client
             modelBuilder.Entity<Client>()
-                .HasIndex(c => c.Phone_number)
-                .IsUnique();
-
+                .HasIndex(c => c.Phone_number).IsUnique();
             modelBuilder.Entity<Client>()
-                .HasIndex(c => c.License)
-                .IsUnique();
+                .HasIndex(c => c.License).IsUnique();
 
+            // Уникальный индекс для Vehicles
             modelBuilder.Entity<Vehicle>()
-                .HasIndex(v => v.Number)
-                .IsUnique();
+                .HasIndex(v => v.Number).IsUnique();
 
-            // Настройка внешних ключей для Rent
+            // Связи для Rent
             modelBuilder.Entity<Rent>()
                 .HasOne(r => r.Client)
                 .WithMany(c => c.Rents)
@@ -48,16 +46,17 @@ namespace CarSharingDB.Models
                 .HasForeignKey(r => r.ID_Vehicles)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            // Уникальные ограничения для Rent (как в вашей БД)
+            // Уникальные ограничения для Rent (один клиент — одна аренда, одна машина — одна аренда)
             modelBuilder.Entity<Rent>()
-                .HasIndex(r => r.ID_Client)
-                .IsUnique();
-
+                .HasIndex(r => r.ID_Client).IsUnique();
             modelBuilder.Entity<Rent>()
-                .HasIndex(r => r.ID_Vehicles)
-                .IsUnique();
+                .HasIndex(r => r.ID_Vehicles).IsUnique();
 
-            // Настройка связей для ClientPayments
+            // Проверка дат аренды
+            modelBuilder.Entity<Rent>()
+                .HasCheckConstraint("CHK_Rent_Dates", "END_date > Beginnig_date");
+
+            // Связи для ClientPayments
             modelBuilder.Entity<ClientPayments>()
                 .HasOne(cp => cp.Client)
                 .WithMany(c => c.ClientPayments)
@@ -70,7 +69,7 @@ namespace CarSharingDB.Models
                 .HasForeignKey(cp => cp.ID_Payments)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            // Настройка связей для VehiclesAccessories
+            // Связи для VehiclesAccessories
             modelBuilder.Entity<VehiclesAccessories>()
                 .HasOne(va => va.Vehicle)
                 .WithMany(v => v.VehiclesAccessories)
@@ -83,14 +82,9 @@ namespace CarSharingDB.Models
                 .HasForeignKey(va => va.ID_Accessories)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            // Уникальный индекс для VehiclesAccessories
+            // Уникальная пара машина-аксессуар
             modelBuilder.Entity<VehiclesAccessories>()
-                .HasIndex(va => new { va.ID_Vehicles, va.ID_Accessories })
-                .IsUnique();
-
-            // Проверка дат для Rent
-            modelBuilder.Entity<Rent>()
-                .HasCheckConstraint("CHK_Rent_Dates", "END_date > Beginnig_date");
+                .HasIndex(va => new { va.ID_Vehicles, va.ID_Accessories }).IsUnique();
         }
     }
 }
