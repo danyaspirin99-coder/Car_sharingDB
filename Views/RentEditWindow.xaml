@@ -1,0 +1,53 @@
+<Window x:Class="Car_sharingDB.Views.RentEditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Оформить аренду" Height="560" Width="420"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize" Background="#F4FAF8">
+
+    <Grid Margin="24">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Оформить аренду"
+                   FontSize="20" FontWeight="Bold" Foreground="#1A3C34" Margin="0,0,0,16"/>
+
+        <StackPanel Grid.Row="1">
+            <TextBlock Text="Клиент *" Style="{StaticResource Label}"/>
+            <ComboBox x:Name="CmbClient" Style="{StaticResource Combo}"
+                      DisplayMemberPath="FullName"/>
+
+            <TextBlock Text="Автомобиль *" Style="{StaticResource Label}"/>
+            <ComboBox x:Name="CmbVehicle" Style="{StaticResource Combo}"
+                      DisplayMemberPath="DisplayInfo"/>
+
+            <TextBlock Text="Дата начала *" Style="{StaticResource Label}"/>
+            <DatePicker Foreground="#1C2833" x:Name="DpStart" Height="30" BorderBrush="#B2DFDB" Margin="0,0,0,4"/>
+
+            <TextBlock Text="Дата окончания *" Style="{StaticResource Label}"/>
+            <DatePicker Foreground="#1C2833" x:Name="DpEnd" Height="30" BorderBrush="#B2DFDB" Margin="0,0,0,4"/>
+
+            <TextBlock Text="Способ оплаты *" Style="{StaticResource Label}"/>
+            <ComboBox x:Name="CmbPaymentWay" Style="{StaticResource Combo}">
+                <ComboBoxItem Content="Карта"/>
+                <ComboBoxItem Content="Наличные"/>
+                <ComboBoxItem Content="QR-код"/>
+            </ComboBox>
+
+            <TextBlock Text="Сумма оплаты *" Style="{StaticResource Label}"/>
+            <TextBox x:Name="TxtAmount" Style="{StaticResource Input}" MaxLength="10"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal"
+                    HorizontalAlignment="Right" Margin="0,16,0,0">
+            <Button Content="Отмена" Width="90" Height="32" Margin="0,0,8,0"
+                    Click="BtnCancel_Click"
+                    Background="#95A5A6" Foreground="White" BorderThickness="0" Cursor="Hand"/>
+            <Button Content="Сохранить" Width="100" Height="32"
+                    Style="{StaticResource PrimaryButton}" Click="BtnSave_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

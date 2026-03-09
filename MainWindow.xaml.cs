@@ -1,4 +1,5 @@
 using System.Windows;
+using System.Windows.Controls;
 using Car_sharingDB.Data;
 using Car_sharingDB.Views;
 
@@ -12,50 +13,27 @@ namespace Car_sharingDB
         {
             InitializeComponent();
             _context = context;
-
-            // Открываем раздел автомобилей по умолчанию
-            MainFrame.Navigate(new VehiclesPage(_context));
-            HighlightButton(BtnVehicles);
+            Navigate(BtnVehicles, new VehiclesPage(_context));
         }
 
         private void BtnVehicles_Click(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Navigate(new VehiclesPage(_context));
-            HighlightButton(BtnVehicles);
-        }
-
+            => Navigate(BtnVehicles, new VehiclesPage(_context));
         private void BtnClients_Click(object sender, RoutedEventArgs e)
-        {
-            // TODO: MainFrame.Navigate(new ClientsPage(_context));
-            MessageBox.Show("Раздел 'Клиенты' в разработке", "Информация");
-        }
-
+            => Navigate(BtnClients, new ClientsPage(_context));
         private void BtnRent_Click(object sender, RoutedEventArgs e)
-        {
-            // TODO: MainFrame.Navigate(new RentPage(_context));
-            MessageBox.Show("Раздел 'Аренда' в разработке", "Информация");
-        }
-
+            => Navigate(BtnRent, new RentPage(_context));
         private void BtnPayments_Click(object sender, RoutedEventArgs e)
-        {
-            // TODO: MainFrame.Navigate(new PaymentsPage(_context));
-            MessageBox.Show("Раздел 'Платежи' в разработке", "Информация");
-        }
+            => Navigate(BtnPayments, new PaymentsPage(_context));
+        private void BtnAccessories_Click(object sender, RoutedEventArgs e)
+            => Navigate(BtnAccessories, new AccessoriesPage(_context));
 
-        private void HighlightButton(System.Windows.Controls.Button active)
+        private void Navigate(Button active, object page)
         {
-            var buttons = new[]
-            {
-                BtnVehicles, BtnClients, BtnRent, BtnPayments
-            };
+            MainFrame.Navigate(page);
+            var buttons = new[] { BtnVehicles, BtnClients, BtnRent, BtnPayments, BtnAccessories };
             foreach (var btn in buttons)
-            {
-                btn.Background = System.Windows.Media.Brushes.Transparent;
-                btn.Foreground = System.Windows.Media.Brushes.LightGray;
-            }
-            active.Background = new System.Windows.Media.SolidColorBrush(
-                (System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#3D5166"));
-            active.Foreground = System.Windows.Media.Brushes.White;
+                btn.Style = (Style)FindResource("TopNavButton");
+            active.Style = (Style)FindResource("TopNavButtonActive");
         }
     }
 }

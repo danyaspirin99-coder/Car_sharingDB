@@ -4,7 +4,7 @@
         Title="Автомобиль" Height="580" Width="400"
         WindowStartupLocation="CenterOwner"
         ResizeMode="NoResize"
-        Background="#F5F5F5">
+        Background="#F4FAF8">
 
     <Grid Margin="24">
         <Grid.RowDefinitions>
@@ -15,7 +15,7 @@
 
         <!-- Заголовок -->
         <TextBlock x:Name="TxtTitle" Grid.Row="0" Text="Добавить автомобиль"
-                   FontSize="18" FontWeight="Bold" Foreground="#2C3E50" Margin="0,0,0,20"/>
+                   FontSize="20" FontWeight="Bold" Foreground="#1A3C34" Margin="0,0,0,20"/>
 
         <!-- Форма -->
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
@@ -66,10 +66,10 @@
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,16,0,0">
             <Button Content="Отмена" Width="90" Height="32" Margin="0,0,8,0"
                     Click="BtnCancel_Click"
-                    Background="#BDC3C7" Foreground="White" BorderThickness="0" Cursor="Hand"/>
+                    Background="#95A5A6" Foreground="White" BorderThickness="0" Cursor="Hand"/>
             <Button Content="Сохранить" Width="100" Height="32"
                     Click="BtnSave_Click"
-                    Background="#2980B9" Foreground="White" BorderThickness="0" Cursor="Hand"/>
+                    Background="#1A8A6E" Foreground="White" BorderThickness="0" Cursor="Hand"/>
         </StackPanel>
     </Grid>
 

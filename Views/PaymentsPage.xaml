@@ -1,0 +1,50 @@
+<Page x:Class="Car_sharingDB.Views.PaymentsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Платежи" Background="#F4FAF8">
+    <Grid Margin="28,24,28,16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Платежи" Style="{StaticResource PageTitle}"/>
+
+        <DataGrid Grid.Row="1" x:Name="PaymentsGrid"
+                  AutoGenerateColumns="False" IsReadOnly="True"
+                  SelectionMode="Single" GridLinesVisibility="Horizontal"
+                  HeadersVisibility="Column" RowBackground="White"
+                  AlternatingRowBackground="#F0FBF8"
+                  BorderBrush="#D5E8E3" BorderThickness="1"
+                  HorizontalGridLinesBrush="#E8F5F0"
+                  CanUserResizeRows="False" FontSize="13"
+                  RowHeight="36" ColumnHeaderHeight="40">
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="Background" Value="#1A8A6E"/>
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="FontWeight" Value="SemiBold"/>
+                    <Setter Property="Padding" Value="12,0"/>
+                    <Setter Property="BorderThickness" Value="0"/>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID"           Binding="{Binding ID_Payments}"      Width="55"/>
+                <DataGridTextColumn Header="Клиент"       Binding="{Binding ClientName}"        Width="200"/>
+                <DataGridTextColumn Header="Тип"          Binding="{Binding Type_of_payment}"   Width="160"/>
+                <DataGridTextColumn Header="Способ"       Binding="{Binding Way_of_payment}"    Width="120"/>
+                <DataGridTextColumn Header="Сумма"        Binding="{Binding Amount}"            Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Border Grid.Row="2" Background="White" BorderBrush="#D5E8E3"
+                BorderThickness="0,1,0,0" Padding="0,12,0,4">
+            <StackPanel Orientation="Horizontal">
+                <Button Content="＋  Добавить платёж" Width="160" Height="36"
+                        Style="{StaticResource PrimaryButton}"
+                        Click="BtnAdd_Click"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

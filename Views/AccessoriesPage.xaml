@@ -1,0 +1,61 @@
+<Page x:Class="Car_sharingDB.Views.AccessoriesPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Аксессуары" Background="#F4FAF8">
+    <Grid Margin="28,24,28,16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Аксессуары" Style="{StaticResource PageTitle}"/>
+
+        <!-- Фильтр по авто -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,0,0,12">
+            <TextBlock Text="Автомобиль:" VerticalAlignment="Center"
+                       FontSize="13" Foreground="#2E7D6A" FontWeight="SemiBold" Margin="0,0,10,0"/>
+            <ComboBox x:Name="CmbVehicleFilter" Style="{StaticResource Combo}"
+                      Width="220" DisplayMemberPath="DisplayInfo"
+                      SelectionChanged="CmbVehicleFilter_SelectionChanged"/>
+        </StackPanel>
+
+        <DataGrid Grid.Row="2" x:Name="AccessoriesGrid"
+                  AutoGenerateColumns="False" IsReadOnly="True"
+                  SelectionMode="Single" GridLinesVisibility="Horizontal"
+                  HeadersVisibility="Column" RowBackground="White"
+                  AlternatingRowBackground="#F0FBF8"
+                  BorderBrush="#D5E8E3" BorderThickness="1"
+                  HorizontalGridLinesBrush="#E8F5F0"
+                  CanUserResizeRows="False" FontSize="13"
+                  RowHeight="36" ColumnHeaderHeight="40">
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="Background" Value="#1A8A6E"/>
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="FontWeight" Value="SemiBold"/>
+                    <Setter Property="Padding" Value="12,0"/>
+                    <Setter Property="BorderThickness" Value="0"/>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID"          Binding="{Binding ID_Vehicles_Accessories}" Width="55"/>
+                <DataGridTextColumn Header="Аксессуар"   Binding="{Binding AccessoryName}"            Width="*"/>
+                <DataGridTextColumn Header="Автомобиль"  Binding="{Binding VehicleInfo}"     Width="220"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Border Grid.Row="3" Background="White" BorderBrush="#D5E8E3"
+                BorderThickness="0,1,0,0" Padding="0,12,0,4">
+            <StackPanel Orientation="Horizontal">
+                <Button Content="＋  Добавить" Width="130" Height="36"
+                        Style="{StaticResource PrimaryButton}"
+                        Click="BtnAdd_Click" Margin="0,0,8,0"/>
+                <Button Content="✕  Удалить" Width="130" Height="36"
+                        Style="{StaticResource DangerButton}"
+                        Click="BtnDelete_Click"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

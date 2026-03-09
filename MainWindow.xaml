@@ -1,35 +1,52 @@
 <Window x:Class="Car_sharingDB.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Каршеринг — Управление" Height="600" Width="1000"
+        Title="CarSharing" Height="660" Width="1100"
         WindowStartupLocation="CenterScreen"
-        Background="#F5F5F5">
+        Background="#F4FAF8">
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="56"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
-        <!-- Боковая панель навигации -->
-        <Border Grid.Column="0" Background="#2C3E50">
-            <StackPanel Margin="0,20,0,0">
-                <TextBlock Text="КАРШЕРИНГ" Foreground="White" FontSize="16"
-                           FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,30"/>
+        <!-- Верхняя навигационная панель -->
+        <Border Grid.Row="0" Background="#1A3C34">
+            <Grid Margin="16,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
-                <Button x:Name="BtnVehicles" Content="🚗  Автомобили"
-                        Style="{StaticResource NavButton}" Click="BtnVehicles_Click"/>
-                <Button x:Name="BtnClients" Content="👤  Клиенты"
-                        Style="{StaticResource NavButton}" Click="BtnClients_Click"/>
-                <Button x:Name="BtnRent" Content="📋  Аренда"
-                        Style="{StaticResource NavButton}" Click="BtnRent_Click"/>
-                <Button x:Name="BtnPayments" Content="💳  Платежи"
-                        Style="{StaticResource NavButton}" Click="BtnPayments_Click"/>
-            </StackPanel>
+                <!-- Логотип -->
+                <StackPanel Grid.Column="0" Orientation="Horizontal"
+                            VerticalAlignment="Center" Margin="0,0,32,0">
+                    <TextBlock Text="🚗" FontSize="22" VerticalAlignment="Center"/>
+                    <TextBlock Text="CarSharing" Foreground="White"
+                               FontSize="16" FontWeight="Bold"
+                               VerticalAlignment="Center" Margin="8,0,0,0"/>
+                </StackPanel>
+
+                <!-- Кнопки навигации -->
+                <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
+                    <Button x:Name="BtnVehicles"    Content="🚗  Автомобили"
+                            Style="{StaticResource TopNavButton}" Click="BtnVehicles_Click"/>
+                    <Button x:Name="BtnClients"     Content="👤  Клиенты"
+                            Style="{StaticResource TopNavButton}" Click="BtnClients_Click"/>
+                    <Button x:Name="BtnRent"        Content="📋  Аренда"
+                            Style="{StaticResource TopNavButton}" Click="BtnRent_Click"/>
+                    <Button x:Name="BtnPayments"    Content="💳  Платежи"
+                            Style="{StaticResource TopNavButton}" Click="BtnPayments_Click"/>
+                    <Button x:Name="BtnAccessories" Content="🔧  Аксессуары"
+                            Style="{StaticResource TopNavButton}" Click="BtnAccessories_Click"/>
+                </StackPanel>
+            </Grid>
         </Border>
 
-        <!-- Область контента -->
-        <Frame x:Name="MainFrame" Grid.Column="1" NavigationUIVisibility="Hidden"/>
+        <!-- Контент -->
+        <Frame x:Name="MainFrame" Grid.Row="1"
+               NavigationUIVisibility="Hidden"
+               Background="#F4FAF8"/>
     </Grid>
-
 </Window>
