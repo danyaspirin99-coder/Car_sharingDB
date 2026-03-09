@@ -1,0 +1,136 @@
+<Page x:Class="Car_sharingDB.Views.ExportPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Экспорт" Background="#F4FAF8">
+    <Grid Margin="28,24,28,24">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Экспорт в Excel" Style="{StaticResource PageTitle}"/>
+
+        <TextBlock Grid.Row="1" Text="Выберите таблицы для экспорта:"
+                   FontSize="14" Foreground="#2E7D6A" FontWeight="SemiBold" Margin="0,0,0,20"/>
+
+        <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto">
+        <StackPanel>
+            <!-- Карточки таблиц -->
+            <Border Background="White" BorderBrush="#D5E8E3" BorderThickness="1"
+                    CornerRadius="10" Padding="20,16" Margin="0,0,0,12">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <CheckBox x:Name="ChkVehicles" Grid.Column="0"
+                              VerticalAlignment="Center" IsChecked="False" Margin="0,0,14,0"/>
+                    <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                        <TextBlock Text="🚗  Автомобили" FontSize="14" FontWeight="SemiBold" Foreground="#1A3C34"/>
+                        <TextBlock Text="Номер, модель, топливо, год, цвет, КПП, привод, статус"
+                                   FontSize="12" Foreground="#888" Margin="0,3,0,0"/>
+                    </StackPanel>
+                    <TextBlock x:Name="TxtVehiclesCount" Grid.Column="2"
+                               VerticalAlignment="Center" FontSize="13"
+                               Foreground="#1A8A6E" FontWeight="SemiBold"/>
+                </Grid>
+            </Border>
+
+            <Border Background="White" BorderBrush="#D5E8E3" BorderThickness="1"
+                    CornerRadius="10" Padding="20,16" Margin="0,0,0,12">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <CheckBox x:Name="ChkClients" Grid.Column="0"
+                              VerticalAlignment="Center" IsChecked="False" Margin="0,0,14,0"/>
+                    <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                        <TextBlock Text="👤  Клиенты" FontSize="14" FontWeight="SemiBold" Foreground="#1A3C34"/>
+                        <TextBlock Text="ФИО, дата рождения, телефон, водительское удостоверение"
+                                   FontSize="12" Foreground="#888" Margin="0,3,0,0"/>
+                    </StackPanel>
+                    <TextBlock x:Name="TxtClientsCount" Grid.Column="2"
+                               VerticalAlignment="Center" FontSize="13"
+                               Foreground="#1A8A6E" FontWeight="SemiBold"/>
+                </Grid>
+            </Border>
+
+            <Border Background="White" BorderBrush="#D5E8E3" BorderThickness="1"
+                    CornerRadius="10" Padding="20,16" Margin="0,0,0,12">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <CheckBox x:Name="ChkRent" Grid.Column="0"
+                              VerticalAlignment="Center" IsChecked="False" Margin="0,0,14,0"/>
+                    <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                        <TextBlock Text="📋  Аренда" FontSize="14" FontWeight="SemiBold" Foreground="#1A3C34"/>
+                        <TextBlock Text="Клиент, автомобиль, дата начала и окончания"
+                                   FontSize="12" Foreground="#888" Margin="0,3,0,0"/>
+                    </StackPanel>
+                    <TextBlock x:Name="TxtRentCount" Grid.Column="2"
+                               VerticalAlignment="Center" FontSize="13"
+                               Foreground="#1A8A6E" FontWeight="SemiBold"/>
+                </Grid>
+            </Border>
+
+            <Border Background="White" BorderBrush="#D5E8E3" BorderThickness="1"
+                    CornerRadius="10" Padding="20,16" Margin="0,0,0,12">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <CheckBox x:Name="ChkPayments" Grid.Column="0"
+                              VerticalAlignment="Center" IsChecked="False" Margin="0,0,14,0"/>
+                    <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                        <TextBlock Text="💳  Платежи" FontSize="14" FontWeight="SemiBold" Foreground="#1A3C34"/>
+                        <TextBlock Text="Клиент, тип оплаты, способ оплаты, сумма"
+                                   FontSize="12" Foreground="#888" Margin="0,3,0,0"/>
+                    </StackPanel>
+                    <TextBlock x:Name="TxtPaymentsCount" Grid.Column="2"
+                               VerticalAlignment="Center" FontSize="13"
+                               Foreground="#1A8A6E" FontWeight="SemiBold"/>
+                </Grid>
+            </Border>
+
+            <Border Background="White" BorderBrush="#D5E8E3" BorderThickness="1"
+                    CornerRadius="10" Padding="20,16" Margin="0,0,0,24">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <CheckBox x:Name="ChkAccessories" Grid.Column="0"
+                              VerticalAlignment="Center" IsChecked="False" Margin="0,0,14,0"/>
+                    <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                        <TextBlock Text="🔧  Аксессуары" FontSize="14" FontWeight="SemiBold" Foreground="#1A3C34"/>
+                        <TextBlock Text="Название аксессуара, автомобиль"
+                                   FontSize="12" Foreground="#888" Margin="0,3,0,0"/>
+                    </StackPanel>
+                    <TextBlock x:Name="TxtAccessoriesCount" Grid.Column="2"
+                               VerticalAlignment="Center" FontSize="13"
+                               Foreground="#1A8A6E" FontWeight="SemiBold"/>
+                </Grid>
+            </Border>
+
+            <!-- Кнопка экспорта -->
+            <Button x:Name="BtnExport" Content="📥  Экспортировать в Excel"
+                    Height="44" Width="260" HorizontalAlignment="Left"
+                    Style="{StaticResource PrimaryButton}"
+                    Click="BtnExport_Click"/>
+
+            <TextBlock x:Name="TxtStatus" Margin="0,14,0,0"
+                       FontSize="13" Foreground="#1A8A6E" Visibility="Collapsed"/>
+        </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

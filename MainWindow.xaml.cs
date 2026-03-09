@@ -26,11 +26,13 @@ namespace Car_sharingDB
             => Navigate(BtnPayments, new PaymentsPage(_context));
         private void BtnAccessories_Click(object sender, RoutedEventArgs e)
             => Navigate(BtnAccessories, new AccessoriesPage(_context));
+        private void BtnExport_Click(object sender, RoutedEventArgs e)
+            => Navigate(BtnExport, new ExportPage(_context));
 
         private void Navigate(Button active, object page)
         {
             MainFrame.Navigate(page);
-            var buttons = new[] { BtnVehicles, BtnClients, BtnRent, BtnPayments, BtnAccessories };
+            var buttons = new[] { BtnVehicles, BtnClients, BtnRent, BtnPayments, BtnAccessories, BtnExport };
             foreach (var btn in buttons)
                 btn.Style = (Style)FindResource("TopNavButton");
             active.Style = (Style)FindResource("TopNavButtonActive");

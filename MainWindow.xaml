@@ -40,6 +40,8 @@
                             Style="{StaticResource TopNavButton}" Click="BtnPayments_Click"/>
                     <Button x:Name="BtnAccessories" Content="🔧  Аксессуары"
                             Style="{StaticResource TopNavButton}" Click="BtnAccessories_Click"/>
+                    <Button x:Name="BtnExport"      Content="📥  Экспорт"
+                            Style="{StaticResource TopNavButton}" Click="BtnExport_Click"/>
                 </StackPanel>
             </Grid>
         </Border>
