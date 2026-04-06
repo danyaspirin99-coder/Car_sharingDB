@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Car_sharingDB.Data.CarSharingRepository" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAFAACQABABQAAAACAAAAAQAAABACAAgADAABAAEY=</HashCode>
+      <FileName>Data\CarSharingRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarSharingDB.Models.Accessory">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAACAAAAAAAAAAAQABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Accessories.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarSharingDB.Models.Client">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAEAAAAAAAAAgQABAAAAAAAQAAAAAAAKgA=</HashCode>
+      <FileName>Models\Client.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarSharingDB.Models.ClientPayments">
+    <Position X="2.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAAAIAAAgAAEAAAAAAAAAQAAAAACAQ=</HashCode>
+      <FileName>Models\ClientPayments.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarSharingDB.Models.Payment">
+    <Position X="4" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACAAgAAAAAASAAAAAAACAA=</HashCode>
+      <FileName>Models\Payments.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarSharingDB.Models.Rent">
+    <Position X="9.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAEAAAEgAABAAAAAAAAAAAAABAAEQ=</HashCode>
+      <FileName>Models\Rent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarSharingDB.Models.User">
+    <Position X="7.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAAAAAAAAAACAAAACAAAAAA=</HashCode>
+      <FileName>Models\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarSharingDB.Models.Vehicle">
+    <Position X="7.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAEBAAUAAAAAEAAAAAAAAAAgAAAAAgAgAAAgAQ=</HashCode>
+      <FileName>Models\Vehicles .cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Car_sharingDB.Views.AccessoriesPage" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAACAAABAEAAAAAAAAAAAAAAAAAAAAgAgAAAAE=</HashCode>
+      <FileName>Views\AccessoriesPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Car_sharingDB.Views.AccessoryViewModel">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAIAAAAAAAAAAAABAQ=</HashCode>
+      <FileName>Views\AccessoriesPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Car_sharingDB.Views.AccessoryAddWindow" BaseTypeListCollapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Views\AccessoryAddWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Car_sharingDB.Views.ClientEditWindow" BaseTypeListCollapsed="true">
+    <Position X="4" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAgAEAAAAA=</HashCode>
+      <FileName>Views\ClientEditWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Car_sharingDB.Views.ClientsPage" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAEoAAAABAEAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Views\ClientsPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Car_sharingDB.Views.LoginWindow" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAABAAABAQAAAAAAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\LoginWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Car_sharingDB.Views.PaymentsPage" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Views\PaymentsPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Car_sharingDB.Views.RentPage" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAABAAAAAAAAAAAAAAAAACAAAAAAgAAAAA=</HashCode>
+      <FileName>Views\RentPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Car_sharingDB.Views.VehiclesPage" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEgAAAABAECAAAAAAABAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Views\VehiclesPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
